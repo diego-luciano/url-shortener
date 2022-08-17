@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'GET') {
-        await prisma.$connect()
         await prisma.shortened.findFirst({
             where: {
                 tag: String(req.query.tag)

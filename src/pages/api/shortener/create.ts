@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST' && req.body?.url) {
-        await prisma.$connect();
         await prisma.shortened.create({
             data: { origin: req.body?.url, tag: nanoid(5) }
         })

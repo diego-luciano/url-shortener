@@ -21,15 +21,16 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <div className='w-11/12 h-auto flex flex-col items-center space-y-7'>
-        <div className='w-full h-auto flex items-center justify-between space-x-2'>
+      <div className='w-11/12 h-auto flex flex-col items-center space-y-7 md:flex-row md:space-y-0 md:space-x-12'>
+        <div className='w-full h-12 flex items-center justify-between space-x-2 md:space-x-4'>
           <input
-            className='w-9/12 h-12 px-2 text-sm font-light rounded-sm border-2 border-blue-700 shadow-md bg-white placeholder-blue-200'
+            className='w-9/12 md:w-8/12 lg:w-9/12 h-full px-2 text-sm font-light rounded-sm border-2 border-blue-700 shadow-md bg-white placeholder-blue-200'
             type="text"
             placeholder={origin} />
-          <button className='h-full w-3/12 text-sm rounded-sm font-semibold text-white bg-blue-700'>Short</button>
+          <button className='w-4/12 lg:w-3/12 h-full text-sm rounded-sm font-semibold text-white bg-blue-700'>Short it!</button>
         </div>
-        <FaArrowDown className='text-3xl text-blue-700' />
+        <FaArrowDown className='md:hidden text-3xl text-blue-700' />
+        <FaArrowRight className='hidden md:flex text-7xl text-blue-700' />
         <input
           disabled
           className='w-full h-12 px-2 text-sm font-light rounded-sm border-2 border-blue-700 shadow-md bg-white placeholder-blue-200'

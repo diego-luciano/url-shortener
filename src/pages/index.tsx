@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <div className='w-screen h-screen flex flex-col items-center justify-center bg-gray-50'>
       <div className='fixed top-0 left-0 w-full h-16 flex items-center justify-center shadow-md bg-white'>
-        <div className='w-11/12 h-full flex items-center justify-between'>
+        <div className='w-11/12 h-full flex items-center justify-between xl:w-9/12'>
           <Link href="/">
             <div className='w-auto flex items-center space-x-2 cursor-pointer'>
               <FaCut className='text-3xl text-blue-700' />
@@ -39,8 +39,8 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      <div className='w-11/12 h-auto flex flex-col items-center space-y-7'>
-        <div className='w-12/12 h-12 flex items-center justify-between space-x-2'>
+      <div className='w-11/12 h-auto flex flex-col items-center space-y-7 md:flex-row md:space-y-0 md:space-x-8 xl:w-9/12'>
+        <div className='w-full h-12 flex items-center justify-between space-x-2'>
           <input
             value={inputValue}
             onChange={e => setInputValue(e.target.value)}
@@ -52,8 +52,8 @@ const Home = () => {
             className='w-3/12 lg:w-3/12 h-full text-sm rounded-sm font-semibold shadow-md text-white bg-blue-700'>Short it!</button>
         </div>
         <FaArrowDown className='md:hidden text-3xl text-blue-700' />
-        <FaArrowRight className='hidden md:flex text-7xl text-blue-700' />
-        <div className='w-12/12 h-12' onClick={onClickShortenedLink}>
+        <FaArrowRight className='hidden md:flex text-5xl text-blue-700' />
+        <div className='w-full h-12' onClick={onClickShortenedLink}>
           <input
             value={shortedInputValue}
             disabled

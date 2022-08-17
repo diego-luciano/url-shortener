@@ -17,7 +17,7 @@ const Shortener = () => {
             setIsLoading(true);
             const req = await axios.post('/api/shortener/create', { url });
             const res = await req.data;
-            setInputValue(`${origin}/${res.tag}`);
+            setInputValue(`${origin}${res.tag}`);
             setIsLoading(false);
         }
     }
@@ -44,7 +44,7 @@ const Shortener = () => {
                         disabled={isLoading}
                         placeholder={origin}
                         type="text"
-                        className="w-full h-full mr-2 text-sm bg-transparent placeholder-slate-200" />
+                        className="w-full h-full mr-2 text-sm bg-transparent font-semibold text-gray-500 placeholder-slate-200" />
                     {isLoading ? <FaSpinner className='p-2 text-3xl rounded-md text-gray-800 animate-spin' /> : null}
                 </div>
             </div>

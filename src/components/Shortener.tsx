@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { FaArrowLeft, FaArrowRight, FaHistory, FaSpinner } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaHistory, FaSpinner, FaCopy } from 'react-icons/fa';
 import validUrl from 'valid-url';
 
 const Shortener = () => {
@@ -22,6 +22,10 @@ const Shortener = () => {
         }
     }
 
+    const onCopyClick = () => {
+        navigator.clipboard.writeText(inputValue);
+    }
+
     return (
         <div style={{ background: '#E1E7EC' }} className='w-full h-auto px-6 py-4 flex flex-col space-y-4 items-center rounded-2xl xl:flex-row xl:h-14 xl:space-y-0'>
             <div className='w-full h-auto flex items-center justify-between xl:w-2/12 xl:justify-center'>
@@ -36,7 +40,7 @@ const Shortener = () => {
                     <FaHistory className='p-2 text-3xl rounded-md text-gray-500 bg-gray-100' />
                 </div>
             </div>
-            <div className='w-full h-14 flex items-center xl:w-9/12'>
+            <div className='w-full h-14 flex items-center xl:w-8/12'>
                 <div className='w-full h-3/5 px-4 flex items-center space-x-2 rounded-2xl bg-white'>
                     <input
                         value={inputValue}
@@ -48,12 +52,18 @@ const Shortener = () => {
                     {isLoading ? <FaSpinner className='p-2 text-3xl rounded-md text-gray-800 animate-spin' /> : null}
                 </div>
             </div>
-            <div className='w-full xl:w-auto h-auto flex items-center space-x-2'>
+            <div className='w-full h-auto flex items-center space-x-2 xl:w-2/12'>
                 <button
                     disabled={!validUrl.isUri(inputValue) || isLoading}
                     onClick={() => onButtonClick(inputValue)}
                     className='w-full xl:w-auto xl:px-3 xl:ml-4 h-8 text-sm font-semibold text-center rounded-md text-gray-500 bg-gray-100 disabled:text-gray-300 disabled:bg-gray-50'>
                     Short it!
+                </button>
+                <button
+                    onClick={onCopyClick}
+                    disabled={!validUrl.isUri(inputValue) || isLoading}
+                    className='rounded-md text-gray-500 bg-gray-100 disabled:text-gray-300 disabled:bg-gray-50'>
+                    <FaCopy className='text-3xl p-2' />
                 </button>
             </div>
         </div>

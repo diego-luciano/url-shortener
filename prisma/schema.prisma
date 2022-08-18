@@ -13,7 +13,7 @@ datasource db {
 }
 
 model Shortened {
-  id       Int   @id @default(autoincrement())
+  id       Int      @id @default(autoincrement())
   origin   String
   tag      String   @unique
   createAt DateTime @default(now())
